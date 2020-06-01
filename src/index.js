@@ -33,6 +33,21 @@ function getData() {
     成功ならpropertyDataをPromise.resolveで返します。
     失敗ならエラーメッセージをPromise.rejectで返します。
   */
+ fetch("http://localhost:8080/")
+  .then((response) => {
+    // fetch成功
+  })
+  .catch((error) => {
+    // fetch失敗
+  });
+  const initObj = {
+    method: "POST",
+    headers: { 
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'MINE': 'application/json'
+    },
+  }
 }
 
 
