@@ -32,7 +32,7 @@ function getData() {
     fetchDataを呼び出し、responseのステータスを元にデータ取得成功か失敗かを判断しましょう。 
     成功ならpropertyDataをPromise.resolveで返します。
     失敗ならエラーメッセージをPromise.rejectで返します。
-  *
+  */
 }
 
 
@@ -49,11 +49,10 @@ function fetchData() {
    // fetch失敗
  });
  const initObj = {
-   method: "POST",
+   method: "GET",
    headers: { 
      'Accept': 'application/json',
      'Content-Type': 'application/json',
-     'MINE': 'application/json'
    },
  }
 }
