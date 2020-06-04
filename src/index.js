@@ -33,6 +33,13 @@ function getData() {
     成功ならpropertyDataをPromise.resolveで返します。
     失敗ならエラーメッセージをPromise.rejectで返します。
   */
+  return fetchData.then((res) => {
+    if (res.status !== 200) {
+      return Promise.reject({succes: false, message: '物件が見つかりませんでした。'});
+    } else {
+      return Promise.resolve({succes: true, propertyData: propertyData}); 
+    }
+  })
 }
 
 
@@ -42,17 +49,11 @@ function fetchData() {
     fetchを使ってデータを取得します。
   */
  fetch("http://localhost:8080/")
- .then((response) => {
-   // fetch成功
- })
- .catch((error) => {
-   // fetch失敗
- });
  const initObj = {
    method: "GET",
    headers: { 
      'Accept': 'application/json',
-     'Content-Type': 'application/json',
+     'Content-Type': 'application/json'
    },
  }
 }
