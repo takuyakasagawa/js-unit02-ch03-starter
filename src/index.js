@@ -35,13 +35,12 @@ function getData() {
   */
   return fetchData.then((res) => {
     if (res.status !== 200) {
-      return Promise.reject({succes: false, message: '物件が見つかりませんでした。'});
+      return Promise.reject(res.message);
     } else {
-      return Promise.resolve({succes: true, propertyData: propertyData}); 
+      return Promise.resolve(res.propertyData); 
     }
   })
 }
-
 
 function fetchData() {
   const url = `${endpoint}/properties/1`
