@@ -1,3 +1,5 @@
+import { promises } from "fs";
+
 const endpoint = "http://localhost:3000"
 
 function handleClick(e) {
@@ -35,13 +37,13 @@ function getData() {
   */
   return fetchData.then((res) => {
     if (res.status !== 200) {
-      return Promise.reject(res.message);
+      return Promise.response.json(res.message);
     } else {
-      return Promise.resolve(res.propertyData); 
+      return Promise.response.json(res.propertyData); 
     }
   })
 }
-
+response.json()
 function fetchData() {
   const url = `${endpoint}/properties/1`
   /* 
