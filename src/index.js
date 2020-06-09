@@ -1,5 +1,3 @@
-import { promises } from "fs";
-
 const endpoint = "http://localhost:3000"
 
 function handleClick(e) {
@@ -34,16 +32,18 @@ function getData() {
     fetchDataを呼び出し、responseのステータスを元にデータ取得成功か失敗かを判断しましょう。 
     成功ならpropertyDataをPromise.resolveで返します。
     失敗ならエラーメッセージをPromise.rejectで返します。
-  */
+  */ 
   return fetchData.then((res) => {
+    const json = res.json();
+    console.log(json);
     if (res.status !== 200) {
-      return Promise.response.json(res.message);
+      return Promise.reject(res.message);
     } else {
-      return Promise.response.json(res.propertyData); 
+      return Promise.resolve(res.propertyData); 
     }
   })
 }
-response.json()
+
 function fetchData() {
   const url = `${endpoint}/properties/1`
   /* 
